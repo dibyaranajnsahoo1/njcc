@@ -600,8 +600,150 @@ body {
 }
 
 
+.title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.player-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media(min-width: 768px) {
+  .player-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.player-card {
+  position: relative;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 0.5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.player-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 8px;
+}
+
+
+.player-info {
+  margin-top: 0.5rem;
+}
+
+.player-icon {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 1.2rem;
+  color: #ff6f00;
+  background: white;
+  padding: 2px 5px;
+  border-radius: 4px;
+  z-index: 1;
+  box-shadow: 0 0 2px #555;
+}
+
+
+
+/* Modal styles */
+.player-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.player-modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.player-modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.player-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+}
 
 
 
 
+/* qr */
+        .contain {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
 
+    .contain h1 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      color: #1a73e8;
+    }
+
+    .contain p {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .qr-image {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin: 0 auto 20px;
+      border: 2px solid #1a73e8;
+      border-radius: 12px;
+    }
+
+    .footer {
+      font-size: 14px;
+      color: #777;
+    }
+
+    @media (max-width: 500px) {
+      .contain {
+        padding: 20px;
+      }
+
+      .contain h1 {
+        font-size: 20px;
+      }
+
+      .contain p {
+        font-size: 14px;
+      }
+    }
+ /* qr */
