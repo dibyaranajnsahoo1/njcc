@@ -11,24 +11,44 @@
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
-    <!-- Google Web Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Saira:wght@500;600;700&display=swap" rel="stylesheet"> 
 
-    <!-- Icon Font Stylesheet -->
+    <!-- Icon Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
+    <!-- Library CSS -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
+    <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Template Stylesheet -->
+    <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* Custom styles for image display */
+        #image-display img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        @media (max-width: 576px) {
+            .schedule-btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -38,11 +58,9 @@
     </div>
     <!-- Spinner End -->
 
-
     <!-- Navbar Start -->
     <div id="navbar-placeholder"></div>
     <!-- Navbar End -->
-
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -57,23 +75,27 @@
         </div>
     </div>
     <!-- Page Header End -->
-    <h1>Schedules Coming Soon..........</h1> 
-
 
     <!-- Schedules Start -->
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <button class="btn btn-warning m-2 schedule-btn" onclick="showImage('rajo')">Rajo Mahostava Match Schedules</button>
+            <button class="btn btn-success m-2 schedule-btn" onclick="showImage('banabihari')">Banabihari Memorial Match Schedules</button>
+            <button class="btn btn-primary m-2 schedule-btn" onclick="showImage('others')">Others</button>
+        </div>
 
-
+        <div id="image-display" class="text-center">
+            <!-- Image will appear here -->
+        </div>
+    </div>
     <!-- Schedules End -->
-
 
     <!-- Footer Start -->
     <div id="footer-placeholder"></div>
     <!-- Footer End -->
 
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -84,19 +106,38 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/parallax/parallax.min.js"></script>
 
-    <!-- Template Javascript -->
-      <script>
-    fetch('navbar.html')
-        .then(res => res.text())
-        .then(data => {
-        document.getElementById('navbar-placeholder').innerHTML = data;
-        });
-         fetch('footer.html')
-        .then(res => res.text())
-        .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-        });
-        
+    <!-- Template and Image Switch Logic -->
+    <script>
+        fetch('navbar.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+
+        function showImage(type) {
+            let imagePath = '';
+            switch(type) {
+                case 'rajo':
+                    imagePath = 'img/rajoschedul.jpg';
+                    break;
+                case 'banabhiari':
+                    imagePath = 'img/banabhiari-schedule.jpg';
+                    break;
+                case 'others':
+                    imagePath = 'img/others-schedule.jpg';
+                    break;
+            }
+
+            if (imagePath) {
+                document.getElementById('image-display').innerHTML = `<img src="${imagePath}" alt="Schedule Image">`;
+            }
+        }
     </script>
     <script src="js/main.js"></script>
 </body>
